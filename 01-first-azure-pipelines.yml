@@ -21,6 +21,7 @@ jobs:
     displayName: 'Run a multi-line script'
 
 - job: Job2
+  dependsOn: Job1
   steps:
   - script: echo This is first step of job 2
     displayName: 'Job2-one line script'
@@ -28,3 +29,9 @@ jobs:
       echo Line one for multi line script
       echo Line two for multi line script
     displayName: 'Job2-multi line script'    
+
+- job: Job3
+  dependsOn: Job2
+  steps:
+  - script: echo This is Job 3
+    displayName: job3- script 
